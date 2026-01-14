@@ -102,8 +102,9 @@ jobs:
         else
           SELINUX_STATE="Enforcing"
         fi
-        
-        bash $(pwd)/tmp_repo/prebuilt/build.sh kernel --jobs $(nproc --all) $(echo $DEFCONFIG)
+
+        curl -LSs https://raw.githubusercontent.com/furbanoramos21-testing/rsuntk-Builder/refs/heads/m12_a12s/prebuilt/build.sh > $(pwd)/build.sh
+        bash $(pwd)/build.sh kernel --jobs $(nproc --all) $(echo $DEFCONFIG)
         
         if [[ "${{ github.event.inputs.KSU }}" = "true" ]]; then
         	KSU_REV_COUNT=$(cd KernelSU && git rev-list --count HEAD)
