@@ -63,7 +63,7 @@ jobs:
       
     - name: Copy build script
       run: |
-        git clone https://github.com/rsuntk/${GITHUB_REPOSITORY#*/} ~/tmp_repo --single-branch -b m12_a12s --depth=1
+        git clone https://github.com/furbanoramos21-testing/rsuntk-Builder ~/tmp_repo --single-branch -b m12_a12s --depth=1
         mv ~/tmp_repo/prebuilt .
       working-directory: kernel_root
     
