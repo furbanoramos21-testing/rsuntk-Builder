@@ -64,7 +64,6 @@ jobs:
     - name: Copy build script
       run: |
         git clone https://github.com/furbanoramos21-testing/rsuntk-Builder ~/tmp_repo --single-branch -b m12_a12s --depth=1
-        mv ~/tmp_repo/prebuilt .
       working-directory: kernel_root
     
     - name: Build kernel
@@ -104,7 +103,7 @@ jobs:
           SELINUX_STATE="Enforcing"
         fi
         
-        bash $(pwd)/prebuilt/build.sh kernel --jobs $(nproc --all) $(echo $DEFCONFIG)
+        bash $(pwd)/tmp_repo/prebuilt/build.sh kernel --jobs $(nproc --all) $(echo $DEFCONFIG)
         
         if [[ "${{ github.event.inputs.KSU }}" = "true" ]]; then
         	KSU_REV_COUNT=$(cd KernelSU && git rev-list --count HEAD)
