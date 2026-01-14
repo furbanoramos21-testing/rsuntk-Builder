@@ -31,7 +31,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
       with:
-        repository: rsuntkOrgs/exynos850_ports
+        repository: furbanoramos21-testing/android_kernel_samsung_exynos850-rissu
         path: kernel_root
         ref: ${{ github.event.inputs.BRANCH }}
         show-progress: false
